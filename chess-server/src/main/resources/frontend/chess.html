@@ -1,0 +1,253 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>chess</title>
+        <style type="text/css">
+        body {
+            background-image: url('https://i.stack.imgur.com/jGlzr.png');
+        }
+
+        .chessboard {
+            width: 480px;
+            height: 480px;
+            margin: 40px auto;
+            border: 1px solid #999;
+        }
+
+        .black {
+            float: left;
+            width: 60px;
+            height: 60px;
+            background-color: #999;
+            font-size: 45px;
+            text-align:center;
+            display: table-cell;
+            vertical-align:middle;
+            cursor: pointer;
+        }
+
+        .white {
+            float: left;
+            width: 60px;
+            height: 60px;
+            background-color: #fff;
+            font-size: 45px;
+            text-align:center;
+            display: table-cell;
+            vertical-align:middle;
+            cursor: pointer;
+        }
+
+        .effect {
+            position:relative;
+            -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+        }
+
+        .effect:before, .effect:after {
+            content:"";
+            position:absolute;
+            z-index:-1;
+            -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+            -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+            box-shadow:0 0 20px rgba(0,0,0,0.8);
+            top:10px;
+            bottom:10px;
+            left:0;
+            right:0;
+            -moz-border-radius:100px / 10px;
+            border-radius:100px / 10px;
+        }
+
+        .effect:after {
+            right:10px;
+            left:auto;
+            -webkit-transform:skew(8deg) rotate(3deg);
+            -moz-transform:skew(8deg) rotate(3deg);
+            -ms-transform:skew(8deg) rotate(3deg);
+            -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+        }
+        </style>
+    </head>
+    <body id="0_0">
+        <label for="chess">Figura:</label>
+
+        <select id="chess">
+            <option value="KING">Król</option>
+            <option value="QUEEN">Królowa</option>
+            <option value="ROCK">Wieża</option>
+            <option value="BISHOP" selected>Goniec</option>
+            <option value="KNIGHT">Konik</option>
+            <option value="PAWN">Pionek</option>
+        </select>
+
+        <div class="chessboard effect">
+            <!-- 1st -->
+            <div class="field white" id="a_8"></div>
+            <div class="field black" id="b_8"></div>
+            <div class="field white" id="c_8"></div>
+            <div class="field black" id="d_8"></div>
+            <div class="field white" id="e_8"></div>
+            <div class="field black" id="f_8"></div>
+            <div class="field white" id="g_8"></div>
+            <div class="field black" id="h_8"></div>
+            <!-- 2nd -->
+            <div class="field black" id="a_7"></div>
+            <div class="field white" id="b_7"></div>
+            <div class="field black" id="c_7"></div>
+            <div class="field white" id="d_7"></div>
+            <div class="field black" id="e_7"></div>
+            <div class="field white" id="f_7"></div>
+            <div class="field black" id="g_7"></div>
+            <div class="field white" id="h_7"></div>
+            <!-- 3th -->
+            <div class="field white" id="a_6"></div>
+            <div class="field black" id="b_6"></div>
+            <div class="field white" id="c_6"></div>
+            <div class="field black" id="d_6"></div>
+            <div class="field white" id="e_6"></div>
+            <div class="field black" id="f_6"></div>
+            <div class="field white" id="g_6"></div>
+            <div class="field black" id="h_6"></div>
+            <!-- 4st -->
+            <div class="field black" id="a_5"></div>
+            <div class="field white" id="b_5"></div>
+            <div class="field black" id="c_5"></div>
+            <div class="field white" id="d_5"></div>
+            <div class="field black" id="e_5"></div>
+            <div class="field white" id="f_5"></div>
+            <div class="field black" id="g_5"></div>
+            <div class="field white" id="h_5"></div>
+            <!-- 5th -->
+            <div class="field white" id="a_4"></div>
+            <div class="field black" id="b_4"></div>
+            <div class="field white" id="c_4"></div>
+            <div class="field black" id="d_4"></div>
+            <div class="field white" id="e_4"></div>
+            <div class="field black" id="f_4"></div>
+            <div class="field white" id="g_4"></div>
+            <div class="field black" id="h_4"></div>
+            <!-- 6th -->
+            <div class="field black" id="a_3"></div>
+            <div class="field white" id="b_3"></div>
+            <div class="field black" id="c_3"></div>
+            <div class="field white" id="d_3"></div>
+            <div class="field black" id="e_3"></div>
+            <div class="field white" id="f_3"></div>
+            <div class="field black" id="g_3"></div>
+            <div class="field white" id="h_3"></div>
+            <!-- 7th -->
+            <div class="field white" id="a_2"></div>
+            <div class="field black" id="b_2"></div>
+            <div class="field white" id="c_2"></div>
+            <div class="field black" id="d_2"></div>
+            <div class="field white" id="e_2"></div>
+            <div class="field black" id="f_2"></div>
+            <div class="field white" id="g_2"></div>
+            <div class="field black" id="h_2"></div>
+            <!-- 8th -->
+            <div class="field black" id="a_1"></div>
+            <div class="field white" id="b_1"></div>
+            <div class="field black" id="c_1"><span id="figure">&#9815;</span></div>
+            <div class="field white" id="d_1"></div>
+            <div class="field black" id="e_1"></div>
+            <div class="field white" id="f_1"></div>
+            <div class="field black" id="g_1"></div>
+            <div class="field white" id="h_1"></div>
+        </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript">
+            function isCorrectMove(start, destination, type) {
+                var figure = {
+                    start: start,
+                    destination: destination,
+                    type: type
+                };
+
+                return $.ajax({
+                    url: 'http://127.0.0.1:8080/api/chess/is-correct-move',
+                    type: 'post',
+                    contentType: 'application/json',
+                    success: function (data) {
+                        console.log('success...');
+                        return data;
+                    },
+                    error: function() {
+                        console.log("error...");
+                        alert("Wystąpił nieoczekiwany problem z usługą!");
+                        return false;
+                    },
+                    data: JSON.stringify(figure)
+                });
+            }
+        </script>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+            var chooseFigure = 'BISHOP';
+
+            var figures = new Map();
+            figures.set('KING', '<span id="figure">&#9812;</span>');
+            figures.set('QUEEN', '<span id="figure">&#9813;</span>');
+            figures.set('ROCK', '<span id="figure">&#9814;</span>');
+            figures.set('BISHOP', '<span id="figure">&#9815;</span>');
+            figures.set('KNIGHT', '<span id="figure">&#9816;</span>');
+            figures.set('PAWN', '<span id="figure">&#9817;</span>');
+
+            var startPosition = null;
+            var destinationPosition = null;
+
+            $("#chess").change(function() {
+                console.log('value = ', $(this).val());
+                chooseFigure = $(this).val();
+
+                $('#figure').remove();
+                switch(chooseFigure) {
+                    case 'KING':  $('#e_1').html(figures.get(chooseFigure)); break;
+                    case 'QUEEN': $('#d_1').html(figures.get(chooseFigure)); break;
+                    case 'ROCK':  $('#a_1').html(figures.get(chooseFigure)); break;
+                    case 'BISHOP':  $('#c_1').html(figures.get(chooseFigure)); break;
+                    case 'KNIGHT':  $('#b_1').html(figures.get(chooseFigure)); break;
+                    case 'PAWN':  $('#d_2').html(figures.get(chooseFigure)); break;
+                }
+            });
+
+            $(".field").mouseup(function(){
+                console.log('mousedown = ' + $(this).attr('id'));
+                console.log('mousedown = ' + $(this).find('#figure').length);
+
+                if($(this).find('#figure').length === 1 && startPosition == null) {
+                    startPosition = $(this).attr('id');
+                    $('#figure').css('color', '#267340');
+
+                } else if(startPosition != null) {
+                    destinationPosition = $(this).attr('id');
+
+                    var resultMove = isCorrectMove(startPosition, destinationPosition, chooseFigure);
+
+                    resultMove.then(function(response) {
+                        if(response) {
+                            $('#figure').css('color', '#000000');
+
+                            $('#figure').remove();
+                            $('#'+destinationPosition).html(figures.get(chooseFigure));
+
+                        } else {
+                            $('#figure').css('color', '#000000');
+
+                            $('#figure').remove();
+                            $('#'+startPosition).html(figures.get(chooseFigure));
+                        }
+
+                        startPosition = null;
+                        destinationPosition = null;
+                    });
+                }
+            });
+        })
+        </script>
+    </body>
+</html>
